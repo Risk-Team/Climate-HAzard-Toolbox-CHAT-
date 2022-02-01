@@ -1,1 +1,1 @@
-This folder contains issues relatedf to the usage of the Hub
+This folder contains issues related to the usage of the Hub

@@ -1,1 +1,1 @@
-This folder contains the main funtions that will be developed for the FAO-UC Hub
+This folder contains the main functions that will be developed for the FAO-UC Hub. The notebook contains all the code and example 

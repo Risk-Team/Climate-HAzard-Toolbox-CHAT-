@@ -1,4 +1,4 @@
-# FAO-UC HUB
+# Climate HAzard Toolbox (CHAT)
 
 ## Needs
 

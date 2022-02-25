@@ -1,0 +1,87 @@
+---
+title: "Climate HAzard Toolbox (CHAT)"
+description: | 
+  Flexible and semi-automatic approach to access and visualize CORDEX-CORE climate models
+date: "February 15, 2022"
+author:
+  - first_name: "Riccardo"
+    last_name: "Soldan"
+    url: https://github.com/OCBteam
+   
+output: 
+  distill::distill_article:
+    toc: true
+    number_sections: true
+    toc_depth: 4
+    code_folding: true
+  toc_float: 
+    collapsed: false
+    smooth_scroll: true
+bibliography: CHAT.bib
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Setting the scene
+
+This document is intended to be used internally to define how to use the Hub and the figure captions to use in climate risk assessments and rationales. 
+
+The Hub is made of 4 main functions:
+
+1. **load_data**: used to load CORDEX-CORE models of a region of interest
+2. **climate_change_signal**: used to visualize climate change signal and agreement in the sign of the climate change signal
+3. **proj**: used to visualize future projections. Bias-correction can be performed automatically
+4. **hist**: used to visualize historical data (W5e5) [@cucchi_wfde5_2020]
+
+## Case study: Kenya
+We provide an example of the figures that can be produced from the Hub and the figure captions to use when writing climate climate risk assessments. The below figures refer to season **Jan-March**.
+
+### load_data function
+
+The load_data function allows the user to load data for a particular country and season of interest. This step takes up to 15 minutes but the following operations are much faster as they depend on the output of the loading function. 
+
+### climate_change_signal function 
+
+This function allows the user to look at model agreement in the sign of the climate change signal (as defined by the IPCC) as well as the mean of climate change signal (average deviation from historical period) and standard deviation of the climate change signal (between models standard deviation). When precipitation is selected (var="pr), values refer to annual total precipitation while when temperature variables are selected ("tasmax" or "tasmin"), mean annual temperature is considered.
+
+The example below is when threshold are not defined. In this case:
+
+`climate_change_signal(data_out, save=TRUE, plot_name="Kenya")`
+
+![Fig.1. Mean and standard deviation of the climate change signal for precipitation in Kenya, January-March. The first plot indicates the overall difference in total annual precipitation (average of 6 CORDEX-CORE models) from historical period (1976-2005). The black dot indicates whether at least 60% of the models agree in the sign of the climate change signal (positive or negative). The second plot show the standard deviation in the climate change signal calculated from the 6 CORDEX-CORE models. Figure produced with the Climate HAzard toolbox (CHAT) developed at FAO (Climate risk team)](figures/Kenya.png)
+
+We now look at the climate change signal in the number of dry days (precipitation < 1 mm)
+
+
+`climate_change_signal(data_out, save=TRUE, plot_name="Kenya", lowert=1)`
+
+![Fig.2. Mean and standard deviation of the climate change signal for dry days in Kenya (days with less than 1 mm of rain), January-March. The first plot indicates the overall difference in dry days (average of 6 CORDEX-CORE models) from historical period (1976-2005). The black dot indicates whether at least 60% of the models agree in the sign of the climate change signal (positive or negative). The second plot show the standard deviation in the climate change signal for dry days from 6 CORDEX-CORE models. Figure produced with the Climate HAzard toolbox (CHAT) developed at FAO (Climate Risks Team) ](figures/Kenya_lowert.png)
+
+### proj function
+
+This function is used to look at climate projections using an ensemble mean. It includes the option to bias-correct the data with the scaling method. If threshold are not specified, results are cumulative (in case of precipitation) or averages (in case of temperatures). 
+
+`proj(data_out, save=TRUE, plot_name="Kenya_proj")`
+
+
+![Fig.3. Total annual precipitation in Kenya, January-March. Values are taken from a multi-model ensemble mean (average of 6 CORDEX-CORE models). Figure produced with the Climate HAzard toolbox (CHAT) developed at FAO (Climate Risks Team).   ](figures/proj.png)
+
+We now perform bias correction
+
+`proj(data_out, save=TRUE, plot_name="Kenya_proj", bias.correction=TRUE)`
+
+![Fig.4. Total annual precipitation in Kenya, January-March after bias-correction. Values are taken from a multi-model ensemble mean (average of 6 CORDEX-CORE models) and bias corrected with W5e5 dataset. Figure produced with the Climate HAzard toolbox (CHAT) developed at FAO (Climate Risk Team).   ](figures/Kenya.bias.png)
+
+
+### hist function
+
+The historical function visualizes data from the W5e5 dataset [@cucchi_wfde5_2020], which is an observational dataset giving highly accurate past climatic data information. 
+
+`hist(data_out, save=TRUE)`
+
+![Fig.5. Total annual precipitation in Kenya, January-March (1980-2005) using the w5e5 reanalysis dataset. Figure produced with the Climate HAzard toolbox (CHAT) developed at FAO (Climate Risk Team).   ](figures/hist.png)
+
+
+

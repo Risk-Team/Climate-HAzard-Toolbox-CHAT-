@@ -30,28 +30,30 @@ This document is intended to be used internally to define how to use the Hub and
 
 The Hub is made of 4 main functions:
 
-1. **load_data**: used to load CORDEX-CORE models of a region of interest
+1. **load_data**: used to load CORDEX-CORE models of a region of interest. Season can be specified. 
 2. **climate_change_signal**: used to visualize climate change signal and agreement in the sign of the climate change signal
-3. **proj**: used to visualize future projections. Bias-correction can be performed automatically
-4. **hist**: used to visualize historical data (W5e5) [@cucchi_wfde5_2020]
+3. **proj**: used to visualize future projections. Bias-correction can be performed automatically as well as trend analysis
+4. **hist**: used to visualize historical data (W5e5) [@cucchi_wfde5_2020]. Trend analysis can be performed. 
 
 ## Case study: Kenya
 We provide an example of the figures that can be produced from the Hub and the figure captions to use when writing climate climate risk assessments. The below figures refer to season **Jan-March**.
 
 ### load_data function
 
-The load_data function allows the user to load data for a particular country and season of interest. This step takes up to 15 minutes but the following operations are much faster as they depend on the output of the loading function. 
+The load_data function allows the user to load data for a particular country and season of interest. This step takes up to 15 minutes for big country and whole seasons selected.
 
 ### climate_change_signal function 
 
-This function allows the user to look at model agreement in the sign of the climate change signal (as defined by the IPCC) as well as the mean of climate change signal (average deviation from historical period) and standard deviation of the climate change signal (between models standard deviation). When precipitation is selected (var="pr), values refer to annual total precipitation while when temperature variables are selected ("tasmax" or "tasmin"), mean annual temperature is considered.
+This function allows the user to look at model agreement in the sign of the climate change signal (as defined by the IPCC) as well as the mean of climate change signal (average deviation from historical period) and standard deviation of the climate change signal (between models standard deviation). When precipitation is selected (var="pr), values refer to annual total precipitation while when temperature variables are selected ("tasmax" or "tasmin"), mean annual temperature is considered. When a threshold argument is specified, then climate change signal refers to number of days. For example, number of days in which precipitation was lower than 1 mm compared to baseline.
 
+#### Thresholds are not specified
 The example below is when threshold are not defined. In this case:
 
 `climate_change_signal(data_out, save=TRUE, plot_name="Kenya")`
 
 ![Fig.1. Mean and standard deviation of the climate change signal for precipitation in Kenya, January-March. The first plot indicates the overall difference in total annual precipitation (average of 6 CORDEX-CORE models) from historical period (1976-2005). The black dot indicates whether at least 60% of the models agree in the sign of the climate change signal (positive or negative). The second plot show the standard deviation in the climate change signal calculated from the 6 CORDEX-CORE models. Figure produced with the Climate HAzard toolbox (CHAT) developed at FAO (Climate risk team)](figures/Kenya.png)
 
+#### Thresholds are specified
 We now look at the climate change signal in the number of dry days (precipitation < 1 mm)
 
 
@@ -61,27 +63,57 @@ We now look at the climate change signal in the number of dry days (precipitatio
 
 ### proj function
 
-This function is used to look at climate projections using an ensemble mean. It includes the option to bias-correct the data with the scaling method. If threshold are not specified, results are cumulative (in case of precipitation) or averages (in case of temperatures). 
+This function is used to look at climate projections using an ensemble mean. It includes the option to bias-correct the data with the scaling method. If threshold are not specified, results are cumulative (in case of precipitation) or averages (in case of temperatures). The option trends allows the user to see the results of linear regression applied to yearly value for each pixel, time-frame and RCP. When both thresholds and trends are specified, linear regression is applied to the total number of days per season in which a certain threshold was or was not exceeded. 
 
-`proj(data_out, save=TRUE, plot_name="Kenya_proj")`
+
+#### thresholds and trends are not specified
+`proj(data_out, save=TRUE, plot_name="Kenya_proj", trends=FALSE)`
 
 
 ![Fig.3. Total annual precipitation in Kenya, January-March. Values are taken from a multi-model ensemble mean (average of 6 CORDEX-CORE models). Figure produced with the Climate HAzard toolbox (CHAT) developed at FAO (Climate Risks Team).   ](figures/proj.png)
 
 We now perform bias correction
 
-`proj(data_out, save=TRUE, plot_name="Kenya_proj", bias.correction=TRUE)`
+`proj(data_out, save=TRUE, plot_name="Kenya_proj", trends=FALSE, bias.correction=TRUE)`
 
-![Fig.4. Total annual precipitation in Kenya, January-March after bias-correction. Values are taken from a multi-model ensemble mean (average of 6 CORDEX-CORE models) and bias corrected with W5e5 dataset. Figure produced with the Climate HAzard toolbox (CHAT) developed at FAO (Climate Risk Team).   ](figures/Kenya.bias.png)
+![Fig.4. Total annual precipitation in Kenya, January-March after bias-correction. The multi-model ensemble mean (average of 6 CORDEX-CORE models) is used and subsequently is bias corrected with W5e5 dataset. Figure produced with the Climate HAzard toolbox (CHAT) developed at FAO (Climate Risk Team).   ](figures/Kenya.bias.png)
 
+#### trends is set as TRUE but thresholds are not specified
+
+In this case we would be looking at the yearly increase in precipitation and whether that increase is significant or not. 
+
+`proj(data_out, save=TRUE, plot_name="Kenya_proj", trends=TRUE, bias.correction=FALSE)`
+
+![Fig.5. Yearly increase in total precipitation in Kenya, January-March. Linear regression is applied to each pixel using the total precipitation fell in the specified season per year. Thus, values refer to yearly increase in precipitation and wheter the increase is statistical significant (black dot) or not (absence of black dot). The multi-model ensemble mean (average of 6 CORDEX-CORE models) is used. Figure produced with the Climate HAzard toolbox (CHAT) developed at FAO (Climate Risk Team).   ](figures/Kenya_trends.png)
+
+#### trends is set as TRUE and thresholds are specified
+
+`proj(data_out, save=TRUE, plot_name="Kenya_proj", trends=TRUE, bias.correction=FALSE, lowert=1)`
+
+In this case we would be looking at the yearly increase in number of days in which there was less than 1 mm of rain. 
+
+![Fig.6. Yearly increase in total number of dry days in Kenya, January-March. Linear regression is applied to each pixel using the total number of days per year (specified season) with less than 1 mm of rain. Thus, values refer to yearly increase in number of dray days and wheter the increase is statistical significant (black dot) or not (absence of black dot). The multi-model ensemble mean (average of 6 CORDEX-CORE models) is used. Figure produced with the Climate HAzard toolbox (CHAT) developed at FAO (Climate Risk Team).   ](figures/Kenya_trends_dry.png)
 
 ### hist function
 
-The historical function visualizes data from the W5e5 dataset [@cucchi_wfde5_2020], which is an observational dataset giving highly accurate past climatic data information. 
+The historical function visualizes data from the W5e5 dataset [@cucchi_wfde5_2020], which is an observational dataset giving highly accurate past climatic data information. Similar to the proj function the hist function allows the user to look at trends. 
 
-`hist(data_out, save=TRUE)`
+#### thresholds and trends are not specified
 
-![Fig.5. Total annual precipitation in Kenya, January-March (1980-2005) using the w5e5 reanalysis dataset. Figure produced with the Climate HAzard toolbox (CHAT) developed at FAO (Climate Risk Team).   ](figures/hist.png)
+`hist(data_out, save=TRUE, trends=FALSE)`
+
+![Fig.7. Total annual precipitation in Kenya, January-March (1980-2005) using the w5e5 reanalysis dataset. Figure produced with the Climate HAzard toolbox (CHAT) developed at FAO (Climate Risk Team).   ](figures/hist.png)
+
+#### trends is set as TRUE but thresholds are not specified
+
+`hist(data_out, save=TRUE, trends=TRUE)`
 
 
+![Fig.8. Yearly increase in total precipitation in Kenya, January-March (1980-2005) using the w5e5 reanalysis dataset. Linear regression is applied to each pixel using the total precipitation fell in the specified season per year. Thus, values refer to yearly increase in total precipitation and wheter the increase is statistical significant (black dot) or not (absence of black dot). Figure produced with the Climate HAzard toolbox (CHAT) developed at FAO (Climate Risk Team).   ](figures/hist_trends.png)
 
+
+#### trends is set as TRUE and threshold are specified
+
+`hist(data_out, save=TRUE, trends=TRUE, lowert=1)`
+
+![Fig.9. Yearly increase in total number of dry days in Kenya, January-March (1980-2005) using the w5e5 reanalysis dataset. Linear regression is applied to each pixel using the total number of days per year (specified season) with less than 1 mm of rain. Thus, values refer to yearly increase in number of dray days and wheter the increase is statistical significant (black dot) or not (absence of black dot). Figure produced with the Climate HAzard toolbox (CHAT) developed at FAO (Climate Risk Team).   ](figures/hist_trends_dry.png)

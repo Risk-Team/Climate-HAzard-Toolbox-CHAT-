@@ -8,3 +8,4 @@ Using and processing climate models can be challenging for non experts. Currentl
 
 
 
+[tutorial.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/OCBteam/Climate-HAzard-Toolbox-CHAT-/main/training/training.html)

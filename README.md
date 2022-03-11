@@ -12,7 +12,19 @@ The Hub is made of 4 main functions:
 1. **load_data**: used to load CORDEX-CORE models of a region of interest. The whole year is loaded as dafault
 2. **climate_change_signal**: used to visualize climate change signal and agreement in the sign of the climate change signal calculated as described by the IPCC
 3. **proj**: used to visualize future projections. Bias-correction can be performed automatically as well as trend analysis
-4. **hist**: used to visualize historical data (W5e5) [@cucchi_wfde5_2020]. Trend analysis can be performed
+4. **hist**: used to visualize historical data (W5e5). Trend analysis can be performed
+
+## proj function
+
+`climate_change_signal(data, save, plot_name, season, lowert, uppert, int_month, palette)`
+
+1. **save**: logical. Used to save or not the plots
+2. **plot_name**: Character.Sspecify the name of the plot
+3. **season**: numerical. Season of interest
+4. **lowert**: numerical. Lower threshold
+5. **uppert**: numerical. Upper threshold
+6. **int_month**: Numerical. Automaic plotting by season. Can either take 6 or 3
+7. **palette**: character. User specified color palette
 
 ## Case study: Kenya
 We provide an example of the figures that can be produced from the Hub and the figure captions to use when writing climate climate risk assessments. The below figures refer to season **Jan-March**.

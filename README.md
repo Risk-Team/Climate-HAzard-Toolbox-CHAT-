@@ -28,10 +28,10 @@ This function allows the user to look at model agreement in the sign of the clim
 6. **int_month**: Numerical. Automatic plotting by season. Can either take 6 or 3
 7. **palette**: character. User specified color palette
 
-
+Below an example of the climate_change_signal function:
 
 ![Kenya](https://user-images.githubusercontent.com/83447905/157858189-590c3fb9-87a8-4f3e-8443-8c27fb337125.png)
-Mean and standard deviation of the climate change signal for dry days in Kenya (days with less than 1 mm of rain), January-March. The first plot indicates the overall difference in dry days (average of 6 CORDEX-CORE models) from historical period (1976-2005). The black dot indicates whether at least 60% of the models agree in the sign of the climate change signal (positive or negative). The second plot show the standard deviation in the climate change signal for dry days from 6 CORDEX-CORE models. Figure produced with the Climate HAzard toolbox (CHAT) developed at FAO (Climate Risks Team)
+*Mean and standard deviation of the climate change signal for precipitation in Kenya, January-March. The first plot indicates the overall difference in total annual precipitation (average of 6 CORDEX-CORE models) from historical period (1976-2005). The black dot indicates whether at least 60% of the models agree in the sign of the climate change signal (positive or negative). The second plot show the standard deviation in the climate change signal calculated from the 6 CORDEX-CORE models. Figure produced with the Climate HAzard toolbox (CHAT) developed at FAO (Climate risk team)*
 
 
 ## proj function
@@ -65,4 +65,7 @@ The historical function visualizes data from the W5e5 dataset, which is an obser
 6. **int_month**: numerical. Automatic plotting by season. Can either take 6 or 3
 7. **trends**: logical. Apply linear regression or not
 8. **palette**: character. User specified color palette
+
+
+**A more detailed description of the functions being developed can be found in the training folder**
 

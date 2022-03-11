@@ -29,6 +29,11 @@ This function allows the user to look at model agreement in the sign of the clim
 7. **palette**: character. User specified color palette
 
 
+
+![Kenya](https://user-images.githubusercontent.com/83447905/157858189-590c3fb9-87a8-4f3e-8443-8c27fb337125.png)
+Mean and standard deviation of the climate change signal for dry days in Kenya (days with less than 1 mm of rain), January-March. The first plot indicates the overall difference in dry days (average of 6 CORDEX-CORE models) from historical period (1976-2005). The black dot indicates whether at least 60% of the models agree in the sign of the climate change signal (positive or negative). The second plot show the standard deviation in the climate change signal for dry days from 6 CORDEX-CORE models. Figure produced with the Climate HAzard toolbox (CHAT) developed at FAO (Climate Risks Team)
+
+
 ## proj function
 
 This function is used to look at climate projections using an ensemble mean. It includes the option to bias-correct the data with the scaling method. If threshold are not specified, results are cumulative (in case of precipitation) or averages (in case of temperatures). The option trends allows the user to see the results of linear regression applied to yearly value for each pixel, time-frame and RCP. When both thresholds and trends are specified, linear regression is applied to the total number of days per season in which a certain threshold was or was not exceeded. 
@@ -61,5 +66,3 @@ The historical function visualizes data from the W5e5 dataset, which is an obser
 7. **trends**: logical. Apply linear regression or not
 8. **palette**: character. User specified color palette
 
-
-![Kenya_trends](https://user-images.githubusercontent.com/83447905/157857100-cf3b3838-9b6c-46a9-9fc7-d33649dae46d.png)

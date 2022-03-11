@@ -18,6 +18,8 @@ The Hub is made of 4 main functions:
 
 The load_data function allows the user to load data for a particular country or region of interest. Each plotting function will then used the output of load_data for plotting. Load_data loads 6 CORDEX-CORE models as well as W5e5 reanalysis dataset. 
 
+`load_data(country, xlim, ylim, domain, var)`
+
 ## climate_change_signal function 
 
 This function allows the user to look at model agreement in the sign of the climate change signal (as defined by the IPCC) as well as the mean of climate change signal (average deviation from historical period) and standard deviation of the climate change signal (between models standard deviation). When precipitation is selected (var="pr), values refer to annual total precipitation while when temperature variables are selected ("tasmax" or "tasmin"), mean annual temperature is considered. When a threshold argument is specified, then climate change signal refers to number of days. For example, number of days in which precipitation was lower than 1 mm compared to baseline. This function has several arguments. 

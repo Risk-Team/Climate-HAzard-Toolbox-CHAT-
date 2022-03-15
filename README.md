@@ -73,5 +73,5 @@ The historical function visualizes data from the W5e5 dataset, which is an obser
 8. **palette**: character. User specified color palette
 
 
-**A more detailed description of the functions being developed can be found in the training folder**
+**A more detailed description of the functions being developed can be found in the training folder.**
 

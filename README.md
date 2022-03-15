@@ -1,6 +1,6 @@
 # Climate HAzard Toolbox (CHAT)
 
-## Needs
+## Motivation
 
 Using and processing climate models can be challenging for non experts. Currently, many platforms exist to visualize important climate information. However, flexibility to generate outputs and perform ad hoc analysis is generally low. We intend to fill that gap by developing a product that allows more flexibility than exsiting tools but at the same time that is easy to use.
 
@@ -13,6 +13,12 @@ The Hub is made of 4 main functions:
 2. **climate_change_signal**: used to visualize climate change signal and agreement in the sign of the climate change signal calculated as described by the IPCC
 3. **proj**: used to visualize future projections. Bias-correction can be performed automatically as well as trend analysis
 4. **hist**: used to visualize historical data (W5e5). Trend analysis can be performed
+
+## load_data function
+
+The load_data function allows the user to load data for a particular country or region of interest. Each plotting function will then used the output of load_data for plotting. Load_data loads 6 CORDEX-CORE models as well as W5e5 reanalysis dataset. 
+
+`load_data(country, xlim, ylim, domain, var)`
 
 ## climate_change_signal function 
 
@@ -67,5 +73,5 @@ The historical function visualizes data from the W5e5 dataset, which is an obser
 8. **palette**: character. User specified color palette
 
 
-**A more detailed description of the functions being developed can be found in the training folder**
+**A more detailed description of the functions being developed can be found in the training folder.**
 

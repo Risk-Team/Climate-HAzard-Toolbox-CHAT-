@@ -10,8 +10,7 @@ Currently, CHAT works through the IPCC atlas server, hosted by the University of
 
 
 
-
-![g21986](https://user-images.githubusercontent.com/83447905/158554110-64b386b8-31e5-4169-80f5-28ac6ee04bf2.png)
+![bitmap](https://user-images.githubusercontent.com/83447905/158554731-7dc0e6ae-1e6f-42f8-b625-adadf981b3dc.png)
 
 *Milestones for CHAT*
 

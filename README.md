@@ -8,9 +8,10 @@ Using and processing climate models can be challenging for non experts. Currentl
 Currently, CHAT works through the IPCC atlas server, hosted by the University of Cantabria. Input climate models are from CORDEX-CORE and CHAT can automatically access W5e5 reanalysis dataset. 
 
 
-![g21725](https://user-images.githubusercontent.com/83447905/158553743-9f0af538-5f19-4210-b55a-9d93e17691d6.png)
 
 
+
+![g21986](https://user-images.githubusercontent.com/83447905/158554110-64b386b8-31e5-4169-80f5-28ac6ee04bf2.png)
 
 *Milestones for CHAT*
 

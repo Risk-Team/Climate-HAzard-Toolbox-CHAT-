@@ -20,7 +20,7 @@ Currently, CHAT works through the IPCC atlas server, hosted by the University of
 
 The Hub is made of 4 main functions:
 
-1. **load_data**: used to load CORDEX-CORE models of a region of interest. The whole year is loaded as dafault
+1. **load_data**: used to load CORDEX-CORE models of a region of interest. The whole year is loaded as dafault since the remaining functions allows to flexibily select a season
 2. **climate_change_signal**: used to visualize climate change signal and agreement in the sign of the climate change signal calculated as described by the IPCC
 3. **proj**: used to visualize future projections. Bias-correction can be performed automatically as well as trend analysis
 4. **hist**: used to visualize historical data (W5e5). Trend analysis can be performed

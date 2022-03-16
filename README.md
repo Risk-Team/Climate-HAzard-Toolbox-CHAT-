@@ -15,7 +15,7 @@ Currently, CHAT works through the IPCC atlas server, hosted by the University of
 *Milestones for CHAT*
 
 
-## Schematic representation of the four core functions that are being developed
+## Schematic representation of the four core functions 
 
 
 The Hub is made of 4 main functions:

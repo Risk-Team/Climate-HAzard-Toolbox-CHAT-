@@ -46,7 +46,7 @@ The load_data function allows the user to load data for a particular country or 
 
 ## climate_change_signal function 
 
-This function allows the user to look at model agreement in the sign of the climate change signal (as defined by the IPCC) as well as the mean of climate change signal (average deviation from historical period) and standard deviation of the climate change signal (between models standard deviation). When precipitation is selected (var="pr), values refer to annual total precipitation while when temperature variables are selected ("tasmax" or "tasmin"), mean annual temperature is considered. When a threshold argument is specified, then climate change signal refers to number of days. For example, average number of days per year in which precipitation was lower than 1 mm compared to baseline. This function has several arguments. 
+This function allows the user to look at model agreement in the sign of the climate change signal (as defined by the IPCC) as well as the mean of climate change signal (average deviation from historical period) and standard deviation of the climate change signal (between models standard deviation). When precipitation is selected (var="pr), values refer to annual total precipitation while when temperature variables are selected ("tasmax" or "tasmin"), mean annual temperature is considered. When a threshold argument is specified, then climate change signal refers to number of days. For example, average number of days in which precipitation was lower than 1 mm compared to baseline in a 30 year time frame. This function has several arguments. 
 
 `climate_change_signal(data, save, plot_name, season, lowert, uppert, int_month, palette)`
 
@@ -64,7 +64,7 @@ The example below is when threshold are not defined. In this case:
 
 `climate_change_signal(data_out, save=TRUE, plot_name="Kenya", season=1:3)`
 
-![Fig.1. Mean and standard deviation of the climate change signal for precipitation in Kenya, January-March. The first plot indicates the overall difference in total annual precipitation (average of 6 CORDEX-CORE models) from historical period (1976-2005) (average per year). The black dot indicates whether at least 60% of the models agree in the sign of the climate change signal (positive or negative). The second plot shows the standard deviation in the climate change signal calculated from the 6 CORDEX-CORE models (average per year). Figure produced with the Climate HAzard toolbox (CHAT) developed at FAO (Climate risk team)](figures/Kenya.png)
+![Fig.1. Mean and standard deviation of the climate change signal for precipitation in Kenya, January-March. The first plot indicates the overall difference in total annual precipitation (average of 6 CORDEX-CORE models) from historical period (1976-2005). The black dot indicates whether at least 60% of the models agree in the sign of the climate change signal (positive or negative). The second plot shows the standard deviation in the climate change signal calculated from the 6 CORDEX-CORE models (average per year). Figure produced with the Climate HAzard toolbox (CHAT) developed at FAO (Climate risk team)](figures/Kenya.png)
 
 #### Thresholds are specified
 We now look at the climate change signal in the number of dry days (precipitation < 1 mm)
@@ -72,7 +72,7 @@ We now look at the climate change signal in the number of dry days (precipitatio
 
 `climate_change_signal(data_out, save=TRUE, plot_name="Kenya", lowert=1, season=1:3)`
 
-![Fig.2. Mean and standard deviation of the climate change signal for dry days in Kenya (days with less than 1 mm of rain), January-March. The first plot indicates the average difference in dry days per year (average of 6 CORDEX-CORE models) from historical period (1976-2005). The black dot indicates whether at least 60% of the models agree in the sign of the climate change signal (positive or negative). The second plot show the standard deviation in the climate change signal for dry days from 6 CORDEX-CORE models, per year. Figure produced with the Climate HAzard toolbox (CHAT) developed at FAO (Climate Risks Team) ](figures/Kenya_lowert.png)
+![Fig.2. Mean and standard deviation of the climate change signal for annual dry days in Kenya (days with less than 1 mm of rain), January-March. The first plot indicates the annual average difference in dry days (average of 6 CORDEX-CORE models) from historical period (1976-2005). The black dot indicates whether at least 60% of the models agree in the sign of the climate change signal (positive or negative). The second plot show the annual standard deviation in the climate change signal for dry days from 6 CORDEX-CORE models. Figure produced with the Climate HAzard toolbox (CHAT) developed at FAO (Climate Risks Team) ](figures/Kenya_lowert.png)
 
 ## proj function
 

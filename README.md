@@ -4,6 +4,13 @@
 
 Using and processing climate models can be challenging for non experts. Currently, many platforms exist to visualize important climate information. However, flexibility to generate outputs and perform ad hoc analysis is generally low. We intend to fill that gap by developing a product that allows more flexibility than exsiting tools but at the same time that is easy to use.
 
+## Working environment and milestones
+Currently, CHAT works through the IPCC atlas server, hosted by the University of Cantabria. Input climate models are from CORDEX-CORE and CHAT can automatically access W5e5 reanalysis dataset. 
+
+![g14491](https://user-images.githubusercontent.com/83447905/158552426-ab1b8de5-2954-49a2-9105-c5262b06c79d.png)
+*Milestones for CHAT*
+
+
 ## Schematic representation of the four core functions that are being developed
 
 

@@ -76,7 +76,7 @@ We now look at the climate change signal in the number of dry days (precipitatio
 
 ## proj function
 
-This function is used to look at climate projections using an ensemble mean. It includes the option to bias-correct the data with the scaling method. If threshold are not specified, results are cumulative (in case of precipitation) or averages (in case of temperatures). The option trends allows the user to see the results of linear regression applied to yearly value for each pixel, time-frame and RCP. When both thresholds and trends are specified, linear regression is applied to the total number of days per season in which a certain threshold was or was not exceeded. 
+This function is used to look at climate projections. It includes the option to bias-correct the data with the scaling method. If threshold are not specified, results are cumulative (in case of precipitation) or averages (in case of temperatures). The option trends allows the user to see the results of linear regression applied to yearly value for each pixel, time-frame and RCP. When both thresholds and trends are specified, linear regression is applied to the total number of days per season in which a certain threshold was or was not exceeded. The results for each model are averaged before visualization, thus an ensemble mean is computed after applying for each model the specified operations. For example, if bias.correction is set to TRUE and uppert is specified, first bias correction is applied to each model, then the number of days exceeding uppert are calculated and lastly the ensemble mean is performed.
 
 `proj(data, save, plot_name, season, lowert, uppert, int_month, trends, palette, bias.correction)`
 
@@ -101,7 +101,7 @@ We now perform bias correction
 
 `proj(data_out, save=TRUE, plot_name="Kenya_proj", trends=FALSE, bias.correction=TRUE)`
 
-![Fig.4. Total annual precipitation in Kenya, January-March after bias-correction. The multi-model ensemble mean (average of 6 CORDEX-CORE models) is used and subsequently is bias corrected with W5e5 dataset. Figure produced with the Climate HAzard toolbox (CHAT) developed at FAO (Climate Risk Team).   ](figures/Kenya.bias.png)
+![Fig.4. Total annual precipitation in Kenya, January-March after bias-correction. Each CORDEX-CORE model is bias corrected against w5e5 dataset and then an ensemble mean of bias corrected models is calculated and visualized. Figure produced with the Climate HAzard toolbox (CHAT) developed at FAO (Climate Risk Team).   ](figures/Kenya.bias.png)
 
 #### trends is set as TRUE but thresholds are not specified
 

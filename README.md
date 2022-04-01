@@ -1,14 +1,11 @@
 # Climate HAzard Toolbox (CHAT)
 
 ## Motivation
-
-Using and processing climate models can be challenging for non experts. Currently, many platforms exist to visualize important climate information. However, flexibility to generate outputs and perform ad hoc analysis is generally low. We intend to fill that gap by developing a product that allows more flexibility than exsiting tools but at the same time that is easy to use.
+Using and processing climate models can be challenging for non experts. Currently, there are many platforms that allow users to visualize climate data and climate models. However, these products do not usually offer much flexibility in terms of performing ad hoc analysis. We intend to fill that gap by developing CHAT (Climate HAzard Toolbox) that will allow users to access regionally downscaled climate models (CORDEX-CORE) as well as visualizing important climate related information in a more flexible way compared to traditional platforms. 
+We intend to do that by first creating a repository hosting CORDEX-CORE models and a dedicated simple R package allowing users with some experience in R to access the climate projections. This has several applications in ecology and biology, allowing users, for example, to use these data as input for SDM (Species Distribution Models). Then, we will launch a Shiny app that will be mainly developed for visualization purposes. The app will allow greater flexibility compared to exsiting tools as it will not rely on pre-computed information. 
 
 ## Working environment and milestones
 Currently, CHAT works through the IPCC atlas server, hosted by the University of Cantabria. CHAT can be seen as a wrapper of several packages but the main "engine" is the [climate4R framework](https://github.com/SantanderMetGroup/climate4R).  Input climate models are from CORDEX-CORE and CHAT can automatically access W5e5 reanalysis dataset. 
-
-
-
 
 ![bitmap](https://user-images.githubusercontent.com/83447905/158554731-7dc0e6ae-1e6f-42f8-b625-adadf981b3dc.png)
 

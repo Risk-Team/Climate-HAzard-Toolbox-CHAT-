@@ -21,7 +21,7 @@ The Hub is made of 4 main functions:
 2. **hist**: used to visualize historical data (W5e5). Trend analysis can be performed
 3. **proj**: used to visualize future projections. Bias-correction can be performed automatically as well as trend analysis
 4. **climate_change_signal**: used to visualize climate change signal and agreement in the sign of the climate change signal calculated as described by the IPCC
-
+5. **trends**: used to visualize trends for spatially aggregated data. 
 
 ## load_data function
 
@@ -64,6 +64,7 @@ This function is used to look at climate projections using an ensemble mean. It 
 7. **trends**: logical. Apply linear regression or not
 8. **bias.correction**: logical
 9. **palette**: character. User specified color palette
+10. **method**: character. Method to be used for bias correction. Default is scaling. 
 
 
 ## hist function
@@ -81,6 +82,25 @@ The historical function visualizes data from the W5e5 dataset, which is an obser
 7. **trends**: logical. Apply linear regression or not
 8. **palette**: character. User specified color palette
 
+## trends function
+
+The trends function allows the visualization of linear trends for spatially aggregated data. 
+
+`proj(data, save, plot_name, season, lowert, uppert, int_month, trends, palette)`
+
+1. **save**: logical. Used to save or not the plots
+2. **plot_name**: character. Specify the name of the plot
+3. **season**: numerical. Season of interest
+4. **lowert**: numerical. Lower threshold
+5. **uppert**: numerical. Upper threshold
+6. **int_month**: numerical. Automatic plotting by season. Can either take 6 or 3
+7. **bias.correction**: logical
+8. **y.range**: numeric vector. User specified y axsis
+9. **method**: method to use in bias correction. Default is scaling
+
+
+![Kenya_trends_bias 1-2-3](https://user-images.githubusercontent.com/83447905/161943534-a86086c4-4578-4f27-9dfa-bf44f8d399ec.png)
+*Yearly increase in total precipitation in Kenya, January-March after bias correction. The regression line is fitted based on the ensemble mean of 6 CORDEX-CORE models while shading represents the between models standard deviation. Figure produced with the Climate HAzard toolbox (CHAT) developed at FAO (Climate Risk Team)*
 
 **A more detailed description of the functions being developed can be found in the training folder**
 

@@ -47,7 +47,7 @@ The load_data function allows the user to load data for a particular country or 
 
 This function allows the user to look at model agreement in the sign of the climate change signal (as defined by the IPCC) as well as the mean of climate change signal (average deviation from historical period) and standard deviation of the climate change signal (between models standard deviation). When precipitation is selected (var="pr), values refer to annual total precipitation while when temperature variables are selected ("tasmax" or "tasmin"), mean annual temperature is calculated. When a threshold argument is specified, then climate change signal refers to number of days. For example, average number of days in which precipitation was lower than 1 mm compared to baseline in a 30 year time frame. This function has several arguments. 
 
-`climate_change_signal(data, save, plot_name, season, lowert, uppert, int_month, palette)`
+`climate_change_signal(data, save, plot_name, season, lowert=NULL, uppert=NULL, int_month=NULL, palette=NULL, prov.country=NULL)`
 
 1. **save**: logical. Used to save or not the plots
 2. **plot_name**: Character.Specify the name of the plot
@@ -56,6 +56,7 @@ This function allows the user to look at model agreement in the sign of the clim
 5. **uppert**: numerical. Upper threshold
 6. **int_month**: Numerical. Automatic plotting by season. Can either take 6 or 3
 7. **palette**: character. User specified color palette
+8. **prov.country**: character. Specify the country name for which to see provinces
 
 #### Thresholds are not specified
 
@@ -77,7 +78,7 @@ We now look at the climate change signal in the number of dry days (precipitatio
 
 This function is used to look at climate projections. It includes the option to bias-correct the data. By default, the scaling method is used but the user can specify alternative methods. When thresholds are not specified, results are cumulative (in case of precipitation) or averages (in case of temperatures). The option trends allows the user to see the results of linear regression applied to yearly value for each pixel, time-frame and RCP. Linear regression is applied in a 30 years by 30 years time frame. When both thresholds and trends are specified, linear regression is applied to the total number of days per season in which a certain threshold was or was not exceeded. The results for each model are averaged before visualization, thus an ensemble mean is computed after applying for each model the specified operations and bias-correction. For example, if bias.correction is set to TRUE and uppert is specified, first bias correction is applied to each model, then the number of days exceeding uppert are calculated and lastly the ensemble mean is performed.
 
-`proj(data, save, plot_name, season, lowert, uppert, int_month, trends, palette, bias.correction)`
+`proj(data, save, plot_name, season, lowert=NULL, uppert=NULL, int_month=NULL, trends, palette=NULL, bias.correction, prov.country=NULL)`
 
 1. **save**: logical. Used to save or not the plots
 2. **plot_name**: character. Specify the name of the plot
@@ -89,6 +90,7 @@ This function is used to look at climate projections. It includes the option to 
 8. **bias.correction**: logical
 9. **palette**: character. User specified color palette
 10. **method**: character. Method to apply for bias-correction. Scaling is default option but can be one of **eqm**, **dqm**, **pqm**, **qdm**, **scaling**.
+11. **prov.country**: character. Specify the country name for which to see provinces
 
 
 #### Thresholds are not specified and trends is set as FALSE
@@ -123,7 +125,7 @@ In this case we would be looking at the yearly increase in number of days in whi
 
 The historical function visualizes data from the W5e5 dataset [@cucchi_wfde5_2020], which is an observational dataset giving highly accurate past climatic data information. Similar to the proj function the hist function allows the user to look at trends. 
 
-`proj(data, save, plot_name, season, lowert, uppert, int_month, trends, palette)`
+`proj(data, save, plot_name, season, lowert=NULL, uppert=NULL, int_month=NULL, trends, palette=NULL, prov.country=NULL)`
 
 1. **save**: logical. Used to save or not the plots
 2. **plot_name**: character. Specify the name of the plot
@@ -133,6 +135,7 @@ The historical function visualizes data from the W5e5 dataset [@cucchi_wfde5_202
 6. **int_month**: numerical. Automaic plotting by season. Can either take 6 or 3
 7. **trends**: logical. Apply linear regression or not
 8. **palette**: character. User specified color palette
+9. **prov.country**: character. Specify the country name for which to see provinces
 
 
 #### Thresholds is not specified and trends is set as FALSE
@@ -161,7 +164,7 @@ The historical function visualizes data from the W5e5 dataset [@cucchi_wfde5_202
 The trend function visualizes spatially aggregated data and linear regression is applied to yearly value. The difference with the trends argument in the proj function is that linear regression was applied to a 30 year time frame while the trend functions applies linear regression to the whole time period (90 years) and it also allows the visualization of observed data (1980-2005).  
 
 
-`trends(data, save, plot_name, season, lowert, uppert, int_month, y.range, bias.correction)`
+`trends(data, save, plot_name, season, lowert=NULL, uppert=NULL, int_month=NULL, y.range=NULL, bias.correction)`
 
 1. **save**: logical. Used to save or not the plots
 2. **plot_name**: character. Specify the name of the plot

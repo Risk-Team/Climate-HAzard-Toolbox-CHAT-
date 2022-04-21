@@ -1,5 +1,6 @@
 
-# Climate HAzard Toolbox (CHAT)
+
+# Climate HAzard Toolbox (CHAT) ![g30445](https://user-images.githubusercontent.com/83447905/164390473-2223e66d-2f43-4116-a9bb-b070e2869427.png)
 
 ## Motivation
 Using and processing climate models can be challenging for non experts. Currently, there are many platforms that allow users to visualize climate data and climate models. However, these products do not usually offer much flexibility in terms of performing ad hoc analysis. We intend to fill that gap by developing CHAT (Climate HAzard Toolbox) that will allow users to access regionally downscaled climate models (CORDEX-CORE) as well as visualizing important climate related information in a more flexible way compared to traditional platforms. 

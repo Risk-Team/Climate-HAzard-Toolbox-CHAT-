@@ -35,7 +35,7 @@ The load_data function allows the user to load data for a particular country or 
 
 This function allows the user to look at model agreement in the sign of the climate change signal (as defined by the IPCC) as well as the mean of climate change signal (average deviation from historical period) and standard deviation of the climate change signal (between models standard deviation). When precipitation is selected (var="pr), values refer to annual total precipitation while when temperature variables are selected ("tasmax" or "tasmin"), mean annual temperature is considered. When a threshold argument is specified, then climate change signal refers to number of days. For example, annual number of days in which precipitation was lower than 1 mm compared to baseline. This function has several arguments. 
 
-`climate_change_signal(data, save, plot_name, season, lowert, uppert, int_month, palette)`
+`climate_change_signal(data, save, plot_name, season, lowert, uppert, int_month, palette, consecutive, duration, prov.country)`
 
 1. **save**: logical. Used to save or not the plots
 2. **plot_name**: Character.Specify the name of the plot
@@ -44,6 +44,9 @@ This function allows the user to look at model agreement in the sign of the clim
 5. **uppert**: numerical. Upper threshold
 6. **int_month**: Numerical. Automatic plotting by season. Can either take 6 or 3
 7. **palette**: character. User specified color palette
+8. **consecutive**: logical. Whether consecutive days should be considered. To be used on conjunction with uppert/lowert and duration
+9. **duration**: charachter. When "max", maximum duration of consecutive days above/below a certain threshold is calculated. When "total", total number of days with at least 6 consecutive days, above/below a certain threshold
+10. **prov.country**: charachter. Country for visualization of provinces
 
 Below an example of the climate_change_signal function:
 
@@ -55,7 +58,7 @@ Below an example of the climate_change_signal function:
 
 This function is used to look at climate projections using an ensemble mean. It includes the option to bias-correct the data with the scaling method. If threshold are not specified, results are cumulative (in case of precipitation) or averages (in case of temperatures). The option trends allows the user to see the results of linear regression applied to yearly value for each pixel, time-frame and RCP. When both thresholds and trends are specified, linear regression is applied to the total number of days per season in which a certain threshold was or was not exceeded. 
 
-`proj(data, save, plot_name, season, lowert, uppert, int_month, trends, palette, bias.correction)`
+`proj(data, save, plot_name, season, lowert, uppert, int_month, trends, palette, bias.correction, prov.country, consecutive, duration)`
 
 1. **save**: logical. Used to save or not the plots
 2. **plot_name**: character. Specify the name of the plot
@@ -66,14 +69,17 @@ This function is used to look at climate projections using an ensemble mean. It 
 7. **trends**: logical. Apply linear regression or not
 8. **bias.correction**: logical
 9. **palette**: character. User specified color palette
-10. **method**: character. Method to be used for bias correction. Default is scaling. 
+10. **method**: character. Method to be used for bias correction. Default is scaling
+11. **consecutive**: logical. Whether consecutive days should be considered. To be used on conjunction with uppert/lowert and duration
+12. **duration**: charachter. When "max", maximum duration of consecutive days above/below a certain threshold is calculated. When "total", total number of days with at least 6 consecutive days, above/below a certain threshold
+13. **prov.country**: charachter. Country for visualization of provinces
 
 
 ## hist function
 
 The historical function visualizes data from the W5e5 dataset, which is an observational dataset giving highly accurate past climatic data information. Similar to the proj function the hist function allows the user to look at trends. 
 
-`proj(data, save, plot_name, season, lowert, uppert, int_month, trends, palette)`
+`proj(data, save, plot_name, season, lowert, uppert, int_month, trends, palette, prov.country, duration, consecutive)`
 
 1. **save**: logical. Used to save or not the plots
 2. **plot_name**: character. Specify the name of the plot
@@ -83,12 +89,15 @@ The historical function visualizes data from the W5e5 dataset, which is an obser
 6. **int_month**: numerical. Automatic plotting by season. Can either take 6 or 3
 7. **trends**: logical. Apply linear regression or not
 8. **palette**: character. User specified color palette
+9.  **consecutive**: logical. Whether consecutive days should be considered. To be used on conjunction with uppert/lowert and duration
+10. **duration**: charachter. When "max", maximum duration of consecutive days above/below a certain threshold is calculated. When "total", total number of days with at least 6 consecutive days, above/below a certain threshold
+11. **prov.country**: charachter. Country for visualization of provinces
 
 ## trends function
 
 The trends function allows the visualization of linear trends for spatially aggregated data. 
 
-`proj(data, save, plot_name, season, lowert, uppert, int_month, trends, palette)`
+`proj(data, save, plot_name, season, lowert, uppert, int_month, trends, palette, consecutive, duration)`
 
 1. **save**: logical. Used to save or not the plots
 2. **plot_name**: character. Specify the name of the plot
@@ -99,6 +108,9 @@ The trends function allows the visualization of linear trends for spatially aggr
 7. **bias.correction**: logical
 8. **y.range**: numeric vector. User specified y axsis
 9. **method**: method to use in bias correction. Default is scaling
+10.  **consecutive**: logical. Whether consecutive days should be considered. To be used on conjunction with uppert/lowert and duration
+11. **duration**: charachter. When "max", maximum duration of consecutive days above/below a certain threshold is calculated. When "total", total number of days with at least 6 consecutive days, above/below a certain threshold
+
 
 
 ![Kenya_trends_bias 1-2-3](https://user-images.githubusercontent.com/83447905/161943534-a86086c4-4578-4f27-9dfa-bf44f8d399ec.png)

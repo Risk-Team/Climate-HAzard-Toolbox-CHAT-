@@ -8,7 +8,7 @@ Table of contents
 <!--ts-->
    * [Motivation](#Motivation)
       * [Working environment and milestones](##Working-environment-and-milestones)
-   * [Schematic representation of the four core functions](#Schematic representation of the four core functions)
+   * [Schematic representation of the four core functions](#Schematic-representation-of-the-four-core-functions)
      * [load_data](##load_data function)
      * [Projections](##proj function)
      * [historical](##hist function)

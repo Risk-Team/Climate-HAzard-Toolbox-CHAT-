@@ -5,7 +5,7 @@
 ## Table of contents[](##table-of-contents)
 1. [Motivation](##Motivation)
    - [Working environment and milestones](##Working-environment-and-milestones)
-3. [Schematic representation of the four core functions](##Schematic-representation-of-the-four-core-functions)
+2. [Schematic representation of the four core functions](##Schematic-representation-of-the-four-core-functions)
    - [Loading the data](###Loading-the-data)
    - [Climate change signal](###Climate-change-signal)
    - [Projections](###Projections)

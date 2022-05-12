@@ -16,8 +16,9 @@
 Using and processing climate models can be challenging for non experts. Currently, there are many platforms that allow users to visualize climate data and climate models. However, these products do not usually offer much flexibility in terms of performing ad hoc analysis. We intend to fill that gap by developing CHAT (Climate HAzard Toolbox) that will allow users to access regionally downscaled climate models (CORDEX-CORE) as well as visualizing important climate related information in a more flexible way compared to traditional platforms. 
 We intend to do that by first creating a repository hosting CORDEX-CORE models and a dedicated simple R package allowing users with some experience in R to access the climate projections. This has several applications in ecology and biology, allowing users, for example, to use these data as input for SDM (Species Distribution Models). Then, we will launch a Shiny app that will be mainly developed for visualization purposes. The app will allow greater flexibility compared to exsiting tools as it will not rely on pre-computed information. 
 
+
 ### Working environment and milestones
-Currently, CHAT works through the IPCC atlas server, hosted by the University of Cantabria. CHAT can be seen as a wrapper of several packages but the main "engine" is the [climate4R framework](https://github.com/SantanderMetGroup/climate4R).  Input climate models are from CORDEX-CORE and CHAT can automatically access W5e5 reanalysis dataset. 
+Currently, CHAT works through the IPCC atlas server, hosted by the University of Cantabria. CHAT can be seen as a wrapper of several packages but the main "engine" is the [climate4R framework](https://github.com/SantanderMetGroup/climate4R).  Input climate models are from CORDEX-CORE and CHAT can automatically access W5e5 bias-corrected reanalysis dataset. 
 
 ![bitmap](https://user-images.githubusercontent.com/83447905/158554731-7dc0e6ae-1e6f-42f8-b625-adadf981b3dc.png)
 
@@ -34,6 +35,8 @@ The Hub is made of five main functions:
 3. **proj**: used to visualize future projections. Bias-correction can be performed automatically as well as trend analysis
 4. **climate_change_signal**: used to visualize climate change signal and agreement in the sign of the climate change signal calculated as described by the IPCC
 5. **trends**: used to visualize trends for spatially aggregated data. 
+
+More information about the CHAT performances can be downloaded [here](https://github.com/OCBteam/Climate-HAzard-Toolbox-CHAT-/blob/main/training/training.html) by pressing the download button.
 
 ### Loading the data
 

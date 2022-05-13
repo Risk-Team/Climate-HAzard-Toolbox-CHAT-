@@ -133,5 +133,5 @@ The trends function allows the visualization of linear trends for spatially aggr
 
 ## Detailed information
 
-A more detailed description of the functions being developed can be found [here](https://github.com/OCBteam/Climate-HAzard-Toolbox-CHAT-/blob/main/training/training.html) by pressing the download button.
+A more detailed description of the functions being developed can be found [here](https://github.com/OCBteam/Climate-HAzard-Toolbox-CHAT-/blob/main/training/training.html). Press the download button and open the html file. 
 

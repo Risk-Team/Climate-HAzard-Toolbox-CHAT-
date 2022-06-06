@@ -22,7 +22,7 @@ At the moment, CHAT is accessible through the University of Cantabria IPCC atlas
 
 ### Working environment and milestones
 Currently, CHAT works through the IPCC atlas server, hosted by the University of Cantabria. CHAT can be seen as a wrapper of several packages but the main "engine" is the [climate4R framework](https://github.com/SantanderMetGroup/climate4R).  Input climate models are from CORDEX-CORE and CHAT can automatically access W5e5 bias-corrected reanalysis dataset. 
-![CHAT](https://user-images.githubusercontent.com/83447905/172111749-1b08dc7b-2818-4896-bbd2-7031c24a69e4.png width=50% height=50%)
+![CHAT](https://user-images.githubusercontent.com/83447905/172111749-1b08dc7b-2818-4896-bbd2-7031c24a69e4.png)
 
 *Milestones for CHAT*
 

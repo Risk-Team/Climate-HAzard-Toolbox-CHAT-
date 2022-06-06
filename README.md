@@ -25,8 +25,6 @@ Currently, CHAT works through the IPCC atlas server, hosted by the University of
 ![CHAT](https://user-images.githubusercontent.com/83447905/172118641-7ce9229d-2495-410f-83ad-19bcfa6200be.png)
 
 
-*Milestones for CHAT*
-
 
 ## Schematic representation of the four core functions 
 

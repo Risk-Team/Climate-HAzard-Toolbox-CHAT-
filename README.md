@@ -11,6 +11,7 @@
    - [Projections](###Projections)
    - [Historical](###Historical)
    - [Trends](###Trends)
+   - [Time of emergence](###Time-of-emergence)
 3. [Detailed information](##Detailed-information)
 
 
@@ -29,13 +30,14 @@ Currently, CHAT works through the IPCC atlas server, hosted by the University of
 ## CHAT functions 
 
 
-CHAT is made of five main functions:
+CHAT is made of six main functions:
 
-1. **load_data**: used to load CORDEX-CORE models of a region of interest. The whole year is loaded as dafault since the remaining functions allows to flexibily select a season
-2. **hist**: used to visualize historical data (W5e5). Trend analysis can be performed
-3. **proj**: used to visualize future projections. Bias-correction can be performed automatically as well as trend analysis
+1. **load_data**: used to load CORDEX-CORE models of a region of interest. The whole year is loaded as dafault since the remaining functions allows to flexibily select a season of interest. Alongside 6 CORDEX-CORE models per RCP, the load_data function also retrieve the observational dataset W5E5.
+2. **hist**: used to visualize historical data (W5E5). Trend analysis can be performed (linear regression with AR1 for the residual applied to yearly data per each pixel)
+3. **proj**: used to visualize future projections. Bias-correction can be performed automatically as well as trend analysis. Agroclimatic indicators can also be calculated (e.g dry spells duration)
 4. **climate_change_signal**: used to visualize climate change signal and agreement in the sign of the climate change signal calculated as described by the IPCC
-5. **trends**: used to visualize trends for spatially aggregated data. 
+5. **trends**: used to visualize trends for spatially aggregated data.
+6. **Time of emergence**: used to visualize the time of emergence of the climate change signal. 
 
 More information about the CHAT performances can be downloaded [here](https://github.com/OCBteam/Climate-HAzard-Toolbox-CHAT-/blob/main/training/training.html) by pressing the download button.
 
@@ -129,6 +131,27 @@ The trends function allows the visualization of linear trends for spatially aggr
 
 ![Kenya_trends_bias 1-2-3](https://user-images.githubusercontent.com/83447905/161943534-a86086c4-4578-4f27-9dfa-bf44f8d399ec.png)
 *Yearly increase in total precipitation in Kenya, January-March after bias correction. The regression line is fitted based on the ensemble mean of 6 CORDEX-CORE models while shading represents the between models standard deviation. Figure produced with the Climate HAzard toolbox (CHAT) developed at FAO (Climate Risk Team)*
+
+
+### Time of emrgence
+
+The trends function allows the visualization of linear trends for spatially aggregated data. 
+
+`proj(data, save, plot_name, season, lowert, uppert, int_month, trends, palette, consecutive, duration)`
+
+1. **save**: logical. Used to save or not the plots
+2. **plot_name**: character. Specify the name of the plot
+3. **season**: numerical. Season of interest
+4. **lowert**: numerical. Lower threshold
+5. **uppert**: numerical. Upper threshold
+6. **int_month**: numerical. Automatic plotting by season. Can either take 6 or 3
+7. **bias.correction**: logical
+8. **y.range**: numeric vector. User specified y axsis
+9. **method**: method to use in bias correction. Default is scaling
+10.  **consecutive**: logical. Whether consecutive days should be considered. To be used on conjunction with uppert/lowert and duration
+11. **duration**: charachter. When "max", maximum duration of consecutive days above/below a certain threshold is calculated. When "total", total number of days with at least 6 consecutive days, above/below a certain threshold
+
+
 
 ## Detailed information
 

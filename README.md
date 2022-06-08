@@ -5,7 +5,7 @@
 ## Table of contents[](##table-of-contents)
 1. [Motivation](##Motivation)
    - [Working environment and milestones](##Working-environment-and-milestones)
-2. [Schematic representation of the four core functions](##Schematic-representation-of-the-four-core-functions)
+2. [CHAT functions ](##CHAT-functions)
    - [Loading the data](###Loading-the-data)
    - [Climate change signal](###Climate-change-signal)
    - [Projections](###Projections)
@@ -26,10 +26,10 @@ Currently, CHAT works through the IPCC atlas server, hosted by the University of
 
 
 
-## Schematic representation of the four core functions 
+## CHAT functions 
 
 
-The Hub is made of five main functions:
+CHAT is made of five main functions:
 
 1. **load_data**: used to load CORDEX-CORE models of a region of interest. The whole year is loaded as dafault since the remaining functions allows to flexibily select a season
 2. **hist**: used to visualize historical data (W5e5). Trend analysis can be performed

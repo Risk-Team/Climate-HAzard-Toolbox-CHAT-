@@ -47,22 +47,28 @@ The load_data function allows the user to load data for a particular country or 
 
 `load_data(country, xlim, ylim, domain, var)`
 
+1. **country**: character. Name of the country
+2. **domain**: character. CORDEX-CORE domain in which the country is located. For example, Kenya is in AFR-22
+3. **xlim**: numerical of length 2. Longitude limits for the customize selected region. When country =NULL
+4. **ylim**: numerical of length 2. Latitude limits for the customize selected region. When country =NULL
+5. **var**: character. Variable to load. Accepted arguments are pr, tasmax, tasmin, sfcWind, tas. 
+
 ### Climate change signal
 
-This function allows the user to look at model agreement in the sign of the climate change signal (as defined by the IPCC) as well as the mean of climate change signal (average deviation from historical period) and standard deviation of the climate change signal (between models standard deviation). When precipitation is selected (var="pr), values refer to annual total precipitation while when temperature variables are selected ("tasmax" or "tasmin"), mean annual temperature is considered. When a threshold argument is specified, then climate change signal refers to number of days. For example, annual number of days in which precipitation was lower than 1 mm compared to baseline. This function has several arguments. 
+This function allows the user to look at model agreement in the sign of the climate change signal (as defined by the IPCC) as well as the mean of climate change signal (average deviation from historical period) and standard deviation of the climate change signal (between models standard deviation). When precipitation is selected (var="pr), values refer to annual total precipitation while when temperature variables are selected ("tasmax" or "tasmin"), mean annual temperature is considered. When a threshold argument is specified, then climate change signal refers to number of days. For example, annual number of days in which precipitation was lower than 1 mm compared to baseline. This function has several arguments.
 
 `climate_change_signal(data, save, plot_name, season, lowert, uppert, int_month, palette, consecutive, duration, prov.country)`
 
 1. **save**: logical. Used to save or not the plots
 2. **plot_name**: Character.Specify the name of the plot
 3. **season**: numerical. Season of interest
-4. **lowert**: numerical. Lower threshold
-5. **uppert**: numerical. Upper threshold
-6. **int_month**: Numerical. Automatic plotting by season. Can either take 6 or 3
-7. **palette**: character. User specified color palette
-8. **consecutive**: logical. Whether consecutive days should be considered. To be used on conjunction with uppert/lowert and duration
-9. **duration**: charachter. When "max", maximum duration of consecutive days above/below a certain threshold is calculated. When "total", total number of days with at least 6 consecutive days, above/below a certain threshold
-10. **prov.country**: charachter. Country for visualization of provinces
+4. **lowert**: numerical. Lower threshold.  Default is NULL
+5. **uppert**: numerical. Upper threshold.  Default is NULL
+6. **int_month**: Numerical. Automatic plotting by season. Can either take 6 or 3.  Default is NULL
+7. **palette**: character. User specified color palette.  Default is NULL
+8. **consecutive**: logical. Whether consecutive days should be considered. To be used on conjunction with uppert/lowert and duration.  Default is FALSE
+9. **duration**: charachter. When "max", maximum duration of consecutive days above/below a certain threshold is calculated. When "total", total number of days with at least 6 consecutive days, above/below a certain threshold.  Default is "max"
+10. **prov.country**: charachter. Country for visualization of provinces.  Default is NULL
 
 Below an example of the climate_change_signal function:
 
@@ -72,60 +78,60 @@ Below an example of the climate_change_signal function:
 
 ### Projections
 
-This function is used to look at climate projections using an ensemble mean. It includes the option to bias-correct the data with the scaling method. If threshold are not specified, results are cumulative (in case of precipitation) or averages (in case of temperatures). The option trends allows the user to see the results of linear regression applied to yearly value for each pixel, time-frame and RCP. When both thresholds and trends are specified, linear regression is applied to the total number of days per season in which a certain threshold was or was not exceeded. 
+This function is used to look at climate projections. It includes the option to bias-correct the data with the scaling method. If threshold are not specified, results are cumulative (in case of precipitation) or averages (in case of temperatures). The option trends allows the user to see the results of linear regression applied to yearly value for each pixel, time-frame and RCP. When both thresholds and trends are specified, linear regression is applied to the total number of days per season in which a certain threshold was or was not exceed. Agroclimatic indicators, such as maximum duration of dry spells can be calculated with consecutive = TRUE. Each calculation is performed for each model separately and then averaged at before visualization. 
 
 `proj(data, save, plot_name, season, lowert, uppert, int_month, trends, palette, bias.correction, prov.country, consecutive, duration)`
 
 1. **save**: logical. Used to save or not the plots
 2. **plot_name**: character. Specify the name of the plot
 3. **season**: numerical. Season of interest
-4. **lowert**: numerical. Lower threshold
-5. **uppert**: numerical. Upper threshold
-6. **int_month**: numerical. Automatic plotting by season. Can either take 6 or 3
-7. **trends**: logical. Apply linear regression or not
-8. **bias.correction**: logical
-9. **palette**: character. User specified color palette
+4. **lowert**: numerical. Lower threshold.  Default is NULL
+5. **uppert**: numerical. Upper threshold.  Default is NULL
+6. **int_month**: numerical. Automatic plotting by season. Can either take 6 or 3.  Default is NULL
+7. **trends**: logical. Apply linear regression or not.  Default is FALSE
+8. **bias.correction**: logical.  Default is FALSE
+9. **palette**: character. User specified color palette.  Default is NULL
 10. **method**: character. Method to be used for bias correction. Default is scaling
-11. **consecutive**: logical. Whether consecutive days should be considered. To be used on conjunction with uppert/lowert and duration
-12. **duration**: charachter. When "max", maximum duration of consecutive days above/below a certain threshold is calculated. When "total", total number of days with at least 6 consecutive days, above/below a certain threshold
-13. **prov.country**: charachter. Country for visualization of provinces
+11. **consecutive**: logical. Whether consecutive days should be considered. To be used on conjunction with uppert/lowert and duration.  Default is FALSE
+12. **duration**: charachter. When "max", maximum duration of consecutive days above/below a certain threshold is calculated. When "total", total number of days with at least 6 consecutive days, above/below a certain threshold.  Default is "max"
+13. **prov.country**: charachter. Country for visualization of provinces.  Default is NULL
 
 
 ### Historical
 
-The historical function visualizes data from the W5e5 dataset, which is an observational dataset giving highly accurate past climatic data information. Similar to the proj function the hist function allows the user to look at trends. 
+The historical function visualizes data from the W5e5 dataset, which is an observational dataset giving highly accurate past climatic data information. Similar to the proj function the hist function allows the user to look at trends as well as agroclimatic indicators.
 
 `proj(data, save, plot_name, season, lowert, uppert, int_month, trends, palette, prov.country, duration, consecutive)`
 
 1. **save**: logical. Used to save or not the plots
 2. **plot_name**: character. Specify the name of the plot
 3. **season**: numerical. Season of interest
-4. **lowert**: numerical. Lower threshold
-5. **uppert**: numerical. Upper threshold
-6. **int_month**: numerical. Automatic plotting by season. Can either take 6 or 3
-7. **trends**: logical. Apply linear regression or not
-8. **palette**: character. User specified color palette
+4. **lowert**: numerical. Lower threshold.  Default is NULL
+5. **uppert**: numerical. Upper threshold.  Default is NULL
+6. **int_month**: numerical. Automatic plotting by season. Can either take 6 or 3.  Default is NULL
+7. **trends**: logical. Apply linear regression or not.  Default is FALSE
+8. **palette**: character. User specified color palette.  Default is NULL
 9.  **consecutive**: logical. Whether consecutive days should be considered. To be used on conjunction with uppert/lowert and duration
-10. **duration**: charachter. When "max", maximum duration of consecutive days above/below a certain threshold is calculated. When "total", total number of days with at least 6 consecutive days, above/below a certain threshold
-11. **prov.country**: charachter. Country for visualization of provinces
+10. **duration**: charachter. When "max", maximum duration of consecutive days above/below a certain threshold is calculated. When "total", total number of days with at least 6 consecutive days, above/below a certain threshold.  Default is "max"
+11. **prov.country**: charachter. Country for visualization of provinces.  Default is NULL
 
 ### Trends
 
-The trends function allows the visualization of linear trends for spatially aggregated data. 
+The trends function allows the visualization of linear trends for spatially aggregated data with the option to bias-correct the data. 
 
 `proj(data, save, plot_name, season, lowert, uppert, int_month, trends, palette, consecutive, duration)`
 
 1. **save**: logical. Used to save or not the plots
 2. **plot_name**: character. Specify the name of the plot
 3. **season**: numerical. Season of interest
-4. **lowert**: numerical. Lower threshold
-5. **uppert**: numerical. Upper threshold
-6. **int_month**: numerical. Automatic plotting by season. Can either take 6 or 3
+4. **lowert**: numerical. Lower threshold.  Default is NULL
+5. **uppert**: numerical. Upper threshold.  Default is NULL
+6. **int_month**: numerical. Automatic plotting by season. Can either take 6 or 3.  Default is NULL
 7. **bias.correction**: logical
-8. **y.range**: numeric vector. User specified y axsis
+8. **y.range**: numeric vector. User specified y axsis. Default is NULL
 9. **method**: method to use in bias correction. Default is scaling
-10.  **consecutive**: logical. Whether consecutive days should be considered. To be used on conjunction with uppert/lowert and duration
-11. **duration**: charachter. When "max", maximum duration of consecutive days above/below a certain threshold is calculated. When "total", total number of days with at least 6 consecutive days, above/below a certain threshold
+10.  **consecutive**: logical. Whether consecutive days should be considered. To be used on conjunction with uppert/lowert and duration. Default is NULL
+11. **duration**: charachter. When "max", maximum duration of consecutive days above/below a certain threshold is calculated. When "total", total number of days with at least 6 consecutive days, above/below a certain threshold.Default is "max"
 
 
 
@@ -135,21 +141,20 @@ The trends function allows the visualization of linear trends for spatially aggr
 
 ### Time of emrgence
 
-The trends function allows the visualization of linear trends for spatially aggregated data. 
+This function allows the calculation of time of emergence of the climate change signal as calculated in [Rojas et al., (2019)](https://www.pnas.org/doi/abs/10.1073/pnas.1811463116).  
 
-`proj(data, save, plot_name, season, lowert, uppert, int_month, trends, palette, consecutive, duration)`
+`time_of_emergence(data, save, plot_name, season, lowert, uppert, int_month, consecutive, duration, prov.country, invert.palette)`
 
 1. **save**: logical. Used to save or not the plots
 2. **plot_name**: character. Specify the name of the plot
 3. **season**: numerical. Season of interest
-4. **lowert**: numerical. Lower threshold
-5. **uppert**: numerical. Upper threshold
-6. **int_month**: numerical. Automatic plotting by season. Can either take 6 or 3
-7. **bias.correction**: logical
-8. **y.range**: numeric vector. User specified y axsis
-9. **method**: method to use in bias correction. Default is scaling
-10.  **consecutive**: logical. Whether consecutive days should be considered. To be used on conjunction with uppert/lowert and duration
-11. **duration**: charachter. When "max", maximum duration of consecutive days above/below a certain threshold is calculated. When "total", total number of days with at least 6 consecutive days, above/below a certain threshold
+4. **lowert**: numerical. Lower threshold. DEfault is NULL
+5. **uppert**: numerical. Upper threshold. Default is NULL
+6. **int_month**: numerical. Automatic plotting by season. Can either take 6 or 3. Default is NULL
+7.  **consecutive**: logical. Whether consecutive days should be considered. To be used on conjunction with uppert/lowert and duration. Default is FALSE
+8. **duration**: charachter. When "max", maximum duration of consecutive days above/below a certain threshold is calculated. When "total", total number of days with at least 6 consecutive days, above/below a certain threshold. Default is "max"
+9. **prov.country**: charachter. Country for visualization of provinces. Default is NULL
+10. **invert.palette**: logical. Whether colors should be inverted. Dafault is FALSE. 
 
 
 

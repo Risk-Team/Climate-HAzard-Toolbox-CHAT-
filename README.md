@@ -130,7 +130,7 @@ The trends function allows the visualization of linear trends for spatially aggr
 7. **bias.correction**: logical
 8. **y.range**: numeric vector. User specified y axsis. Default is NULL
 9. **method**: method to use in bias correction. Default is scaling
-10.  **consecutive**: logical. Whether consecutive days should be considered. To be used on conjunction with uppert/lowert and duration. Default is NULL
+10.  **consecutive**: logical. Whether consecutive days should be considered. To be used on conjunction with uppert/lowert and duration. Default is FALSE
 11. **duration**: charachter. When "max", maximum duration of consecutive days above/below a certain threshold is calculated. When "total", total number of days with at least 6 consecutive days, above/below a certain threshold.Default is "max"
 
 

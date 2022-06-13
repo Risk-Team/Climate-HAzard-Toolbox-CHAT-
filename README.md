@@ -78,7 +78,7 @@ Below an example of the climate_change_signal function:
 
 ### Projections
 
-This function is used to look at climate projections. It includes the option to bias-correct the data with the scaling method. If threshold are not specified, results are cumulative (in case of precipitation) or averages (in case of temperatures). The option trends allows the user to see the results of linear regression applied to yearly value for each pixel, time-frame and RCP. When both thresholds and trends are specified, linear regression is applied to the total number of days per season in which a certain threshold was or was not exceed. Agroclimatic indicators, such as maximum duration of dry spells can be calculated with consecutive = TRUE. Each calculation is performed for each model separately and then averaged at before visualization. 
+This function is used to look at climate projections. It includes the option to bias-correct the data with the scaling method. If threshold are not specified, results are cumulative (in case of precipitation) or averages (in case of temperatures). The option trends allows the user to see the results of linear regression applied to yearly value for each pixel, time-frame and RCP. When both thresholds and trends are specified, linear regression is applied to the total number of days per season in which a certain threshold was or was not exceed. Agroclimatic indicators, such as maximum duration of dry spells can be calculated with consecutive = TRUE. Each calculation is performed for each model separately and then averaged before visualization. 
 
 `proj(data, save, plot_name, season, lowert, uppert, int_month, trends, palette, bias.correction, prov.country, consecutive, duration)`
 

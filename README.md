@@ -158,7 +158,6 @@ This function allows the calculation of time of emergence of the climate change 
 
 
 ![Kenya_example_ToE 1-2-3-4-5-6-7-8-9-10-11-12 (1)](https://user-images.githubusercontent.com/40058235/173361010-f5bb60f8-37c8-4c70-8052-37b25056aa43.png)
-
 *Time of emergence of the climate change signal in Kenya, January-December. Figure produced with the Climate HAzard toolbox (CHAT) developed at FAO (Climate Risk Team)*
 
 

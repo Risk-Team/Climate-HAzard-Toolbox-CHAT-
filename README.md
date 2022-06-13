@@ -156,8 +156,7 @@ This function allows the calculation of time of emergence of the climate change 
 9. **prov.country**: charachter. Country for visualization of provinces. Default is NULL
 10. **invert.palette**: logical. Whether colors should be inverted. Dafault is FALSE. 
 
-
-![Kenya_example_ToE 1-2-3-4-5-6-7-8-9-10-11-12 (1)](https://user-images.githubusercontent.com/40058235/173361010-f5bb60f8-37c8-4c70-8052-37b25056aa43.png)
+![Kenya_example_ToE 1-2-3-4-5-6-7-8-9-10-11-12 (3)](https://user-images.githubusercontent.com/40058235/173361870-02940146-3bc2-44da-a30f-d80e29447996.png)
 *Time of emergence of the climate change signal in Kenya, January-December. Figure produced with the Climate HAzard toolbox (CHAT) developed at FAO (Climate Risk Team)*
 
 

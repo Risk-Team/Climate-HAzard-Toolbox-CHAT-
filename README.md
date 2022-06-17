@@ -7,9 +7,9 @@
    - [Working environment and milestones](##Working-environment-and-milestones)
 2. [CHAT functions ](##CHAT-functions)
    - [Loading the data](###Loading-the-data)
-   - [Climate change signal](###Climate-change-signal)
-   - [Projections](###Projections)
    - [Historical](###Historical)
+   - [Projections](###Projections)
+   - [Climate change signal](###Climate-change-signal)
    - [Trends](###Trends)
    - [Time of emergence](###Time-of-emergence)
 3. [Detailed information](##Detailed-information)
@@ -53,27 +53,25 @@ The load_data function allows the user to load data for a particular country or 
 4. **ylim**: numerical of length 2. Latitude limits for the customize selected region. When country =NULL
 5. **var**: character. Variable to load. Accepted arguments are pr, tasmax, tasmin, sfcWind, tas. 
 
-### Climate change signal
 
-This function allows the user to look at model agreement in the sign of the climate change signal (as defined by the IPCC) as well as the mean of climate change signal (average deviation from historical period) and standard deviation of the climate change signal (between models standard deviation). When precipitation is selected (var="pr), values refer to annual total precipitation while when temperature variables are selected ("tasmax" or "tasmin"), mean annual temperature is considered. When a threshold argument is specified, then climate change signal refers to number of days. For example, annual number of days in which precipitation was lower than 1 mm compared to baseline. This function has several arguments.
+### Historical
 
-`climate_change_signal(data, save, plot_name, season, lowert, uppert, int_month, palette, consecutive, duration, prov.country)`
+The historical function visualizes data from the W5e5 dataset, which is an observational dataset giving highly accurate past climatic data information. Similar to the proj function the hist function allows the user to look at trends as well as agroclimatic indicators.
+
+`proj(data, save, plot_name, season, lowert, uppert, int_month, trends, palette, prov.country, duration, consecutive)`
 
 1. **save**: logical. Used to save or not the plots
-2. **plot_name**: Character.Specify the name of the plot
+2. **plot_name**: character. Specify the name of the plot
 3. **season**: numerical. Season of interest
 4. **lowert**: numerical. Lower threshold.  Default is NULL
 5. **uppert**: numerical. Upper threshold.  Default is NULL
-6. **int_month**: Numerical. Automatic plotting by season. Can either take 6 or 3.  Default is NULL
-7. **palette**: character. User specified color palette.  Default is NULL
-8. **consecutive**: logical. Whether consecutive days should be considered. To be used on conjunction with uppert/lowert and duration.  Default is FALSE
-9. **duration**: charachter. When "max", maximum duration of consecutive days above/below a certain threshold is calculated. When "total", total number of days with at least 6 consecutive days, above/below a certain threshold.  Default is "max"
-10. **prov.country**: charachter. Country for visualization of provinces.  Default is NULL
+6. **int_month**: numerical. Automatic plotting by season. Can either take 6 or 3.  Default is NULL
+7. **trends**: logical. Apply linear regression or not.  Default is FALSE
+8. **palette**: character. User specified color palette.  Default is NULL
+9.  **consecutive**: logical. Whether consecutive days should be considered. To be used on conjunction with uppert/lowert and duration
+10. **duration**: charachter. When "max", maximum duration of consecutive days above/below a certain threshold is calculated. When "total", total number of days with at least 6 consecutive days, above/below a certain threshold.  Default is "max"
+11. **prov.country**: charachter. Country for visualization of provinces.  Default is NULL
 
-Below an example of the climate_change_signal function:
-
-![Kenya](https://user-images.githubusercontent.com/83447905/157858189-590c3fb9-87a8-4f3e-8443-8c27fb337125.png)
-*Mean and standard deviation of the climate change signal for precipitation in Kenya, January-March. The first plot indicates the overall difference in total annual precipitation (average of 6 CORDEX-CORE models) from historical period (1976-2005). The black dot indicates whether at least 60% of the models agree in the sign of the climate change signal (positive or negative). The second plot shows the standard deviation in the climate change signal calculated from the 6 CORDEX-CORE models. Figure produced with the Climate HAzard toolbox (CHAT) developed at FAO (Climate risk team)*
 
 
 ### Projections
@@ -97,23 +95,31 @@ This function is used to look at climate projections. It includes the option to 
 13. **prov.country**: charachter. Country for visualization of provinces.  Default is NULL
 
 
-### Historical
 
-The historical function visualizes data from the W5e5 dataset, which is an observational dataset giving highly accurate past climatic data information. Similar to the proj function the hist function allows the user to look at trends as well as agroclimatic indicators.
+### Climate change signal
 
-`proj(data, save, plot_name, season, lowert, uppert, int_month, trends, palette, prov.country, duration, consecutive)`
+This function allows the user to look at model agreement in the sign of the climate change signal (as defined by the IPCC) as well as the mean of climate change signal (average deviation from historical period) and standard deviation of the climate change signal (between models standard deviation). When precipitation is selected (var="pr), values refer to annual total precipitation while when temperature variables are selected ("tasmax" or "tasmin"), mean annual temperature is considered. When a threshold argument is specified, then climate change signal refers to number of days. For example, annual number of days in which precipitation was lower than 1 mm compared to baseline. This function has several arguments.
+
+`climate_change_signal(data, save, plot_name, season, lowert, uppert, int_month, palette, consecutive, duration, prov.country)`
 
 1. **save**: logical. Used to save or not the plots
-2. **plot_name**: character. Specify the name of the plot
+2. **plot_name**: Character.Specify the name of the plot
 3. **season**: numerical. Season of interest
 4. **lowert**: numerical. Lower threshold.  Default is NULL
 5. **uppert**: numerical. Upper threshold.  Default is NULL
-6. **int_month**: numerical. Automatic plotting by season. Can either take 6 or 3.  Default is NULL
-7. **trends**: logical. Apply linear regression or not.  Default is FALSE
-8. **palette**: character. User specified color palette.  Default is NULL
-9.  **consecutive**: logical. Whether consecutive days should be considered. To be used on conjunction with uppert/lowert and duration
-10. **duration**: charachter. When "max", maximum duration of consecutive days above/below a certain threshold is calculated. When "total", total number of days with at least 6 consecutive days, above/below a certain threshold.  Default is "max"
-11. **prov.country**: charachter. Country for visualization of provinces.  Default is NULL
+6. **int_month**: Numerical. Automatic plotting by season. Can either take 6 or 3.  Default is NULL
+7. **palette**: character. User specified color palette.  Default is NULL
+8. **consecutive**: logical. Whether consecutive days should be considered. To be used on conjunction with uppert/lowert and duration.  Default is FALSE
+9. **duration**: charachter. When "max", maximum duration of consecutive days above/below a certain threshold is calculated. When "total", total number of days with at least 6 consecutive days, above/below a certain threshold.  Default is "max"
+10. **prov.country**: charachter. Country for visualization of provinces.  Default is NULL
+
+Below an example of the climate_change_signal function:
+
+![Kenya](https://user-images.githubusercontent.com/83447905/157858189-590c3fb9-87a8-4f3e-8443-8c27fb337125.png)
+*Mean and standard deviation of the climate change signal for precipitation in Kenya, January-March. The first plot indicates the overall difference in total annual precipitation (average of 6 CORDEX-CORE models) from historical period (1976-2005). The black dot indicates whether at least 60% of the models agree in the sign of the climate change signal (positive or negative). The second plot shows the standard deviation in the climate change signal calculated from the 6 CORDEX-CORE models. Figure produced with the Climate HAzard toolbox (CHAT) developed at FAO (Climate risk team)*
+
+
+
 
 ### Trends
 

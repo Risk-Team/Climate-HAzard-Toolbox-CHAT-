@@ -19,15 +19,15 @@
 Using and processing climate models can be challenging for non experts. Currently, there are many platforms that allow users to visualize climate data and climate models. However, these products do not usually offer much flexibility in terms of performing ad hoc analysis. We intend to fill that gap by developing CHAT (Climate HAzard Toolbox) that will allow users to access regionally downscaled climate models (CORDEX-CORE) as well as visualizing important climate related information in a more flexible way compared to traditional platforms.
 Moreover, CHAT will focus on the automatic computation of informative statistics, such as time of emergence of the climate change signal.
 
-At the moment, CHAT is accessible through the University of Cantabria IPCC atlas server and restricted to the risk team members of OCB division (FAO). However, we intend to release CHAT as a R shiny app in 2023. 
+At the moment, CHAT is accessible through the University of Cantabria IPCC atlas server and restricted to the risk team members of OCB division (FAO). However, we intend to release CHAT as a R shiny app in 2023.
 
 ### Working environment and milestones
-Currently, CHAT works through the IPCC atlas server, hosted by the University of Cantabria. CHAT can be seen as a wrapper of several packages but the main "engine" is the [climate4R framework](https://github.com/SantanderMetGroup/climate4R).  Input climate models are from CORDEX-CORE and CHAT can automatically access W5e5 bias-corrected reanalysis dataset. 
+Currently, CHAT works through the IPCC atlas server, hosted by the University of Cantabria. CHAT can be seen as a wrapper of several packages but the main "engine" is the [climate4R framework](https://github.com/SantanderMetGroup/climate4R).  Input climate models are from CORDEX-CORE and CHAT can automatically access W5e5 bias-corrected reanalysis dataset.
 ![CHAT](https://user-images.githubusercontent.com/83447905/172118641-7ce9229d-2495-410f-83ad-19bcfa6200be.png)
 
 
 
-## CHAT functions 
+## CHAT functions
 
 
 CHAT is made of six main functions:
@@ -37,13 +37,13 @@ CHAT is made of six main functions:
 3. **proj**: used to visualize future projections. Bias-correction can be performed automatically as well as trend analysis. Agroclimatic indicators can also be calculated (e.g dry spells duration)
 4. **climate_change_signal**: used to visualize climate change signal and agreement in the sign of the climate change signal calculated as described by the IPCC
 5. **trends**: used to visualize trends for spatially aggregated data.
-6. **Time of emergence**: used to visualize the time of emergence of the climate change signal. 
+6. **Time of emergence**: used to visualize the time of emergence of the climate change signal.
 
 More information about the CHAT performances can be downloaded [here](https://github.com/OCBteam/Climate-HAzard-Toolbox-CHAT-/blob/main/training/training.html) by pressing the download button.
 
 ### Loading the data
 
-The load_data function allows the user to load data for a particular country or region of interest. Each plotting function will then used the output of load_data for plotting. Load_data loads 6 CORDEX-CORE models as well as W5e5 reanalysis dataset. 
+The load_data function allows the user to load data for a particular country or region of interest. Each plotting function will then used the output of load_data for plotting. Load_data loads 6 CORDEX-CORE models as well as W5e5 reanalysis dataset.
 
 `load_data(country, xlim, ylim, domain, var)`
 
@@ -51,7 +51,7 @@ The load_data function allows the user to load data for a particular country or 
 2. **domain**: character. CORDEX-CORE domain in which the country is located. For example, Kenya is in AFR-22
 3. **xlim**: numerical of length 2. Longitude limits for the customize selected region. When country =NULL
 4. **ylim**: numerical of length 2. Latitude limits for the customize selected region. When country =NULL
-5. **var**: character. Variable to load. Accepted arguments are pr, tasmax, tasmin, sfcWind, tas. 
+5. **var**: character. Variable to load. Accepted arguments are pr, tasmax, tasmin, sfcWind, tas.
 
 ### Climate change signal
 
@@ -78,7 +78,7 @@ Below an example of the climate_change_signal function:
 
 ### Projections
 
-This function is used to look at climate projections. It includes the option to bias-correct the data with the scaling method. If threshold are not specified, results are cumulative (in case of precipitation) or averages (in case of temperatures). The option trends allows the user to see the results of linear regression applied to yearly value for each pixel, time-frame and RCP. When both thresholds and trends are specified, linear regression is applied to the total number of days per season in which a certain threshold was or was not exceed. Agroclimatic indicators, such as maximum duration of dry spells can be calculated with consecutive = TRUE. Each calculation is performed for each model separately and then averaged before visualization. 
+This function is used to look at climate projections. It includes the option to bias-correct the data with the scaling method. If threshold are not specified, results are cumulative (in case of precipitation) or averages (in case of temperatures). The option trends allows the user to see the results of linear regression applied to yearly value for each pixel, time-frame and RCP. When both thresholds and trends are specified, linear regression is applied to the total number of days per season in which a certain threshold was or was not exceed. Agroclimatic indicators, such as maximum duration of dry spells can be calculated with consecutive = TRUE. Each calculation is performed for each model separately and then averaged before visualization.
 
 `proj(data, save, plot_name, season, lowert, uppert, int_month, trends, palette, bias.correction, prov.country, consecutive, duration)`
 
@@ -101,7 +101,7 @@ This function is used to look at climate projections. It includes the option to 
 
 The historical function visualizes data from the W5e5 dataset, which is an observational dataset giving highly accurate past climatic data information. Similar to the proj function the hist function allows the user to look at trends as well as agroclimatic indicators.
 
-`proj(data, save, plot_name, season, lowert, uppert, int_month, trends, palette, prov.country, duration, consecutive)`
+`hist(data, save, plot_name, season, lowert, uppert, int_month, trends, palette, prov.country, duration, consecutive)`
 
 1. **save**: logical. Used to save or not the plots
 2. **plot_name**: character. Specify the name of the plot
@@ -117,9 +117,9 @@ The historical function visualizes data from the W5e5 dataset, which is an obser
 
 ### Trends
 
-The trends function allows the visualization of linear trends for spatially aggregated data with the option to bias-correct the data. 
+The trends function allows the visualization of linear trends for spatially aggregated data with the option to bias-correct the data.
 
-`proj(data, save, plot_name, season, lowert, uppert, int_month, trends, palette, consecutive, duration)`
+`trends(data, save, bias.correction, plot_name, season, method, lowert, uppert, int_month, y.range, consecutive, duration)`
 
 1. **save**: logical. Used to save or not the plots
 2. **plot_name**: character. Specify the name of the plot
@@ -148,13 +148,13 @@ This function allows the calculation of time of emergence of the climate change 
 1. **save**: logical. Used to save or not the plots
 2. **plot_name**: character. Specify the name of the plot
 3. **season**: numerical. Season of interest
-4. **lowert**: numerical. Lower threshold. DEfault is NULL
+4. **lowert**: numerical. Lower threshold. Default is NULL
 5. **uppert**: numerical. Upper threshold. Default is NULL
 6. **int_month**: numerical. Automatic plotting by season. Can either take 6 or 3. Default is NULL
 7.  **consecutive**: logical. Whether consecutive days should be considered. To be used on conjunction with uppert/lowert and duration. Default is FALSE
 8. **duration**: charachter. When "max", maximum duration of consecutive days above/below a certain threshold is calculated. When "total", total number of days with at least 6 consecutive days, above/below a certain threshold. Default is "max"
 9. **prov.country**: charachter. Country for visualization of provinces. Default is NULL
-10. **invert.palette**: logical. Whether colors should be inverted. Dafault is FALSE. 
+10. **invert.palette**: logical. Whether colors should be inverted. Dafault is FALSE.
 
 ![Kenya_example_ToE 1-2-3-4-5-6-7-8-9-10-11-12 (3)](https://user-images.githubusercontent.com/40058235/173361870-02940146-3bc2-44da-a30f-d80e29447996.png)
 *Time of emergence of the climate change signal in Kenya, January-December, for total precipitation. Figure produced with the Climate HAzard toolbox (CHAT) developed at FAO (Climate Risk Team)*
@@ -163,5 +163,4 @@ This function allows the calculation of time of emergence of the climate change 
 
 ## Detailed information
 
-A more detailed description of the functions being developed can be found [here](https://github.com/OCBteam/Climate-HAzard-Toolbox-CHAT-/blob/main/training/training.html). Press the download button and open the html file. 
-
+A more detailed description of the functions being developed can be found [here](https://github.com/OCBteam/Climate-HAzard-Toolbox-CHAT-/blob/main/training/training.html). Press the download button and open the html file.

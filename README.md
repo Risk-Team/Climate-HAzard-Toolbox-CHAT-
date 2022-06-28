@@ -57,7 +57,7 @@ The load_data function allows the user to load data for a particular country or 
 
 This function allows the user to look at model agreement in the sign of the climate change signal (as defined by the IPCC) as well as the mean of climate change signal (average deviation from historical period) and standard deviation of the climate change signal (between models standard deviation). When precipitation is selected (var="pr), values refer to annual total precipitation while when temperature variables are selected ("tasmax" or "tasmin"), mean annual temperature is considered. When a threshold argument is specified, then climate change signal refers to number of days. For example, annual number of days in which precipitation was lower than 1 mm compared to baseline. This function has several arguments.
 
-`climate_change_signal(data, save, plot_name, season, lowert, uppert, int_month, palette, consecutive, duration, prov.country)`
+`climate_change_signal(data, save, plot_name, season, lowert, uppert, int_month, palette, consecutive, duration, prov.country, legend.range_mean, legend.range_sd)`
 
 1. **save**: logical. Used to save or not the plots
 2. **plot_name**: Character.Specify the name of the plot
@@ -69,6 +69,8 @@ This function allows the user to look at model agreement in the sign of the clim
 8. **consecutive**: logical. Whether consecutive days should be considered. To be used on conjunction with uppert/lowert and duration.  Default is FALSE
 9. **duration**: charachter. When "max", maximum duration of consecutive days above/below a certain threshold is calculated. When "total", total number of days with at least 6 consecutive days, above/below a certain threshold.  Default is "max"
 10. **prov.country**: charachter. Country for visualization of provinces.  Default is NULL
+11. **legend.range_mean**: numeric. Upper and lower limits for figure legend (mean signal). Default is NULL
+12. **legend.range_sd**: numeric.Upper and lower limits for figure legend (standard deviation). Default is NULL
 
 Below an example of the climate_change_signal function:
 
@@ -80,7 +82,7 @@ Below an example of the climate_change_signal function:
 
 This function is used to look at climate projections. It includes the option to bias-correct the data with the scaling method. If threshold are not specified, results are cumulative (in case of precipitation) or averages (in case of temperatures). The option trends allows the user to see the results of linear regression applied to yearly value for each pixel, time-frame and RCP. When both thresholds and trends are specified, linear regression is applied to the total number of days per season in which a certain threshold was or was not exceed. Agroclimatic indicators, such as maximum duration of dry spells can be calculated with consecutive = TRUE. Each calculation is performed for each model separately and then averaged before visualization.
 
-`proj(data, save, plot_name, season, lowert, uppert, int_month, trends, palette, bias.correction, prov.country, consecutive, duration)`
+`proj(data, save, plot_name, season, lowert, uppert, int_month, trends, palette, bias.correction, prov.country, consecutive, duration, legend.range)`
 
 1. **save**: logical. Used to save or not the plots
 2. **plot_name**: character. Specify the name of the plot
@@ -95,13 +97,14 @@ This function is used to look at climate projections. It includes the option to 
 11. **consecutive**: logical. Whether consecutive days should be considered. To be used on conjunction with uppert/lowert and duration.  Default is FALSE
 12. **duration**: charachter. When "max", maximum duration of consecutive days above/below a certain threshold is calculated. When "total", total number of days with at least 6 consecutive days, above/below a certain threshold.  Default is "max"
 13. **prov.country**: charachter. Country for visualization of provinces.  Default is NULL
+14. **legend.range**: numeric. Upper and lower limits for figure legend. Default is NULL
 
 
 ### Historical
 
 The historical function visualizes data from the W5e5 dataset, which is an observational dataset giving highly accurate past climatic data information. Similar to the proj function the hist function allows the user to look at trends as well as agroclimatic indicators.
 
-`hist(data, save, plot_name, season, lowert, uppert, int_month, trends, palette, prov.country, duration, consecutive)`
+`hist(data, save, plot_name, season, lowert, uppert, int_month, trends, palette, prov.country, duration, consecutive, legend.range)`
 
 1. **save**: logical. Used to save or not the plots
 2. **plot_name**: character. Specify the name of the plot
@@ -114,12 +117,13 @@ The historical function visualizes data from the W5e5 dataset, which is an obser
 9.  **consecutive**: logical. Whether consecutive days should be considered. To be used on conjunction with uppert/lowert and duration
 10. **duration**: charachter. When "max", maximum duration of consecutive days above/below a certain threshold is calculated. When "total", total number of days with at least 6 consecutive days, above/below a certain threshold.  Default is "max"
 11. **prov.country**: charachter. Country for visualization of provinces.  Default is NULL
+12. **legend.range**: numeric. Upper and lower limits for figure legend. Default is NULL
 
 ### Trends
 
 The trends function allows the visualization of linear trends for spatially aggregated data with the option to bias-correct the data.
 
-`trends(data, save, bias.correction, plot_name, season, method, lowert, uppert, int_month, y.range, consecutive, duration)`
+`trends(data, save, bias.correction, plot_name, season, method, lowert, uppert, int_month, y.range, consecutive, duration, legend.range)`
 
 1. **save**: logical. Used to save or not the plots
 2. **plot_name**: character. Specify the name of the plot
@@ -132,6 +136,7 @@ The trends function allows the visualization of linear trends for spatially aggr
 9. **method**: method to use in bias correction. Default is scaling
 10.  **consecutive**: logical. Whether consecutive days should be considered. To be used on conjunction with uppert/lowert and duration. Default is FALSE
 11. **duration**: charachter. When "max", maximum duration of consecutive days above/below a certain threshold is calculated. When "total", total number of days with at least 6 consecutive days, above/below a certain threshold.Default is "max"
+12. **legend.range**: numeric. Upper and lower limits for figure legend. Default is NULL
 
 
 

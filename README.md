@@ -39,7 +39,7 @@ CHAT is made of six main functions:
 5. **trends**: used to visualize trends for spatially aggregated data.
 6. **Time of emergence**: used to visualize the time of emergence of the climate change signal.
 
-More information about the CHAT performances can be downloaded [here](https://github.com/OCBteam/Climate-HAzard-Toolbox-CHAT-/blob/main/training/training.html) by pressing the download button.
+More information about the CHAT performances can be downloaded [here](https://github.com/OCBteam/Climate-HAzard-Toolbox-CHAT-/blob/main/training/training.html) and pressing the download button.
 
 ### Loading the data
 

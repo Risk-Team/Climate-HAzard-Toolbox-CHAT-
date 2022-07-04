@@ -12,7 +12,7 @@
    - [Historical](###Historical)
    - [Trends](###Trends)
    - [Time of emergence](###Time-of-emergence)
-3. [Detailed information](##Detailed-information
+3. [Detailed information](##Detailed-information)
 
 
 ## Motivation

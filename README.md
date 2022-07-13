@@ -168,4 +168,4 @@ This function allows the calculation of time of emergence of the climate change 
 
 ## Detailed information
 
-A more detailed description of the functions being developed can be found [here](https://github.com/OCBteam/Climate-HAzard-Toolbox-CHAT-/blob/main/training/training.html). Press the download button and open the html file.
+A more detailed description of the functions being developed can be found [here](https://github.com/Risk-Team/Climate-HAzard-Toolbox-CHAT-/tree/main/training). Press the download button and open the html file.
